@@ -1,0 +1,507 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"
+      integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <link rel="stylesheet" href="main.css" />
+  </head>
+  <body>
+    <div class="countdown">
+      <p class="countdown-text">3</p>
+    </div>
+    <!-- .scoreSide kısmı üstte olan oyun başladığında score gördüğü yer -->
+    <div class="scoreSide" style="display: none">
+      <div class="scoreBox">
+        <div class="scoreTitle">Score</div>
+        <div class="scoreNum">
+          0
+          <p>/0</p>
+        </div>
+      </div>
+      <div class="scoreTimeBox" style="display: none">
+        <div class="scoreTimeTextBox">
+          <i class="fa-solid fa-clock"></i>Time
+        </div>
+        <h2 class="scoreTimeText">60</h2>
+      </div>
+    </div>
+    <!-- .trainingFinish burası oyun bittiğinde ne kadar skor yaptığını görüğü yer -->
+    <div class="trainingFinish" style="display: none">
+      <div class="trainingTitle">Training information</div>
+      <div class="trainingBox">
+        <div class="trainingTopBox">
+          <div class="trainProfileBox">
+            <div
+              class="trainProfileImg"
+              style="
+                background-image: url(https://cdn.discordapp.com/attachments/746645694194122775/1135514215164162048/WhatsApp_Gorsel_2023-07-31_saat_12.54.20.jpg?ex=6548bb05&is=65364605&hm=ecf297726eadad26ce3428de6fd929948d2e908af03e7eb1d16225445bbcc6e4&);
+              "
+            ></div>
+            <div class="trainProfileTextBox">
+              <h2 class="trainProfileText">Tworst Kırıcı</h2>
+              <p class="trainProfileSubText">Member</p>
+            </div>
+          </div>
+          <div class="againButton">Try Again</div>
+        </div>
+        <div class="trainingBottomBox">
+          <div class="trainingBottomTopBox">
+            <div class="trainTitleBox">
+              <h2 class="trainTitle">DYNAMIC CLICKING</h2>
+              <p class="trainSubTitle">Information</p>
+            </div>
+            <div class="trainMode">Medium</div>
+          </div>
+          <div class="trainingScoreBox">
+            <div class="trainingScore redScoreBox">
+              <div class="trainingScoreTitle">Total Score</div>
+              <div class="trainingScoreBottom">
+                12
+                <p>/40</p>
+              </div>
+            </div>
+            <div
+              class="trainingScore whiteScoreBox"
+              style="width: 14.7vw !important"
+            >
+              <div class="trainingScoreTitle2">Shooting Accuracy</div>
+              <div class="trainingScoreBottom2">%29</div>
+            </div>
+            <!-- <div
+              class="trainingScore whiteScoreBox"
+              style="width: 15vw !important; height: 3.6458vw"
+            >
+              <div class="trainingScoreTitle">Total Time</div>
+              <div class="trainingScoreBottom2" style="font-size: 1.1779vw">
+                1m 30s
+              </div>
+            </div> -->
+            <div
+              class="trainingScore whiteScoreBox"
+              style="width: 30.7vw !important; height: 4.6458vw"
+            >
+              <div class="trainingScoreTitle3">Earned Score</div>
+              <div class="trainingScoreBottom3" style="font-size: 2.1779vw">
+                45603
+              </div>
+            </div>
+          </div>
+          <div class="trainCloseButton">Okay, close</div>
+        </div>
+      </div>
+    </div>
+    <!-- .General burası ilk asıl menü olduğu yer -->
+    <div class="General" style="display: none">
+      <div class="popupSide" style="display: none">
+        <div class="popupBox">
+          <div class="exitBox"><i class="fa-solid fa-xmark"></i></div>
+          <div class="popupTitleBox">
+            <div class="popupTitleIcon">
+              <img src="./img/popupImg/dynamicImg.png" alt="" />
+            </div>
+            <div class="popupTitleTextBox">
+              <h2 class="popupTitleText">DYNAMIC CLICKING</h2>
+              <p class="popupTitleSubText">Training Options</p>
+            </div>
+          </div>
+          <img src="./img/popupImg/modeGif.png" alt="" class="popupModeGif" />
+          <div class="chooseWeaponBox">
+            Choose a Weapon
+            <div class="weaponList">
+              <div class="weaponBox" id = "WEAPON_PISTOL">
+                <img
+                  src="./img/popupImg/weapons/pistol.png"
+                  alt=""
+                  class="weaponImg"
+                />
+                <div class="weaponName">Pistol</div>
+              </div>
+              <div class="weaponBox" id = "WEAPON_PISTOL_MK2">
+                <img
+                  src="./img/popupImg/weapons/pistolmk2.png"
+                  alt=""
+                  class="weaponImg"
+                />
+                <div class="weaponName">Pistol MK II</div>
+              </div>
+              <div class="weaponBox" id = "WEAPON_COMBATPISTOL">
+                <img
+                  src="./img/popupImg/weapons/combatpistol.png"
+                  alt=""
+                  class="weaponImg"
+                />
+                <div class="weaponName">Combat Pistol</div>
+              </div>
+              <div class="weaponBox" id = "WEAPON_HEAVYPISTOL">
+                <img
+                  src="./img/popupImg/weapons/heavypistol.png"
+                  alt=""
+                  class="weaponImg"
+                />
+                <div class="weaponName">Heavy Pistol</div>
+              </div>
+              <div class="weaponBox" id = "WEAPON_VINTAGEPISTOL">
+                <img
+                  src="./img/popupImg/weapons/vintagepistol.png"
+                  alt=""
+                  class="weaponImg"
+                />
+                <div class="weaponName">Vintage Pistol</div>
+              </div>
+              <div class="weaponBox" id = "WEAPON_APPISTOL">
+                <img
+                  src="./img/popupImg/weapons/appistol.png"
+                  alt=""
+                  class="weaponImg"
+                />
+                <div class="weaponName">AP Pistol</div>
+              </div>
+              <div class="weaponBox" id = "WEAPON_MACHINEPISTOL">
+                <img
+                  src="./img/popupImg/weapons/machinepistol.png"
+                  alt=""
+                  class="weaponImg"
+                />
+                <div class="weaponName">Machine Pistol</div>
+              </div>
+              <div class="weaponBox" id = "WEAPON_MICROSMG">
+                <img
+                  src="./img/popupImg/weapons/microsmg.png"
+                  alt=""
+                  class="weaponImg"
+                />
+                <div class="weaponName">Micro SMG</div>
+              </div>
+              <div class="weaponBox" id = "WEAPON_MINISMG">
+                <img
+                  src="./img/popupImg/weapons/minismg.png"
+                  alt=""
+                  class="weaponImg"
+                />
+                <div class="weaponName">Mini SMG</div>
+              </div>
+              <div class="weaponBox" id = "WEAPON_SMG">
+                <img
+                  src="./img/popupImg/weapons/smg.png"
+                  alt=""
+                  class="weaponImg"
+                />
+                <div class="weaponName">SMG</div>
+              </div>
+              <div class="weaponBox" id = "WEAPON_SMG_MK2">
+                <img
+                  src="./img/popupImg/weapons/smgmk2.png"
+                  alt=""
+                  class="weaponImg"
+                />
+                <div class="weaponName">SMG MK II</div>
+              </div>
+              <div class="weaponBox" id = "WEAPON_ASSAULTSMG">
+                <img
+                  src="./img/popupImg/weapons/assaultsmg.png"
+                  alt=""
+                  class="weaponImg"
+                />
+                <div class="weaponName">Assault SMG</div>
+              </div>
+              <div class="weaponBox" id = "WEAPON_COMBATPDW">
+                <img
+                  src="./img/popupImg/weapons/combatpdw.png"
+                  alt=""
+                  class="weaponImg"
+                />
+                <div class="weaponName">Combat PDW</div>
+              </div>
+              <div class="weaponBox" id = "WEAPON_ASSAULTRIFLE">
+                <img
+                  src="./img/popupImg/weapons/assaultrifle.png"
+                  alt=""
+                  class="weaponImg"
+                />
+                <div class="weaponName">Assault Rifle</div>
+              </div>
+              <div class="weaponBox" id = "WEAPON_ASSAULTRIFLE_MK2">
+                <img
+                  src="./img/popupImg/weapons/assaultriflemk2.png"
+                  alt=""
+                  class="weaponImg"
+                />
+                <div class="weaponName">Assault Rifle MK II</div>
+              </div>
+              <div class="weaponBox" id = "WEAPON_COMPACTRIFLE">
+                <img
+                  src="./img/popupImg/weapons/compactrifle.png"
+                  alt=""
+                  class="weaponImg"
+                />
+                <div class="weaponName">Compact Rifle</div>
+              </div>
+              <div class="weaponBox" id = "WEAPON_CARBINERIFLE">
+                <img
+                  src="./img/popupImg/weapons/carbinerifle.png"
+                  alt=""
+                  class="weaponImg"
+                />
+                <div class="weaponName">Carbine Rifle</div>
+              </div>
+              <div class="weaponBox" id = "WEAPON_CARBINERIFLE_MK2">
+                <img
+                  src="./img/popupImg/weapons/carbineriflemk2.png"
+                  alt=""
+                  class="weaponImg"
+                />
+                <div class="weaponName">Carbine Rifle MK II</div>
+              </div>
+              <div class="weaponBox" id = "WEAPON_ADVANCEDRIFLE">
+                <img
+                  src="./img/popupImg/weapons/advancedrifle.png"
+                  alt=""
+                  class="weaponImg"
+                />
+                <div class="weaponName">Advanced Rifle</div>
+              </div>
+              <div class="weaponBox" id = "WEAPON_SPECIALCARBINE">
+                <img
+                  src="./img/popupImg/weapons/specialcarbine.png"
+                  alt=""
+                  class="weaponImg"
+                />
+                <div class="weaponName">Special Carbine</div>
+              </div>
+              <div class="weaponBox" id = "WEAPON_SPECIALCARBINE_MK2">
+                <img
+                  src="./img/popupImg/weapons/specialcarbinermk2.png"
+                  alt=""
+                  class="weaponImg"
+                />
+                <div class="weaponName">Special Carbine MK II</div>
+              </div>
+            </div>
+          </div>
+          <div class="chooseDifficultyBox">
+            Choose a Difficulty
+            <div class="chooseEasyList">
+              <div class="chooseBox easyMode" id = "easyMode">
+                <div class="chooseTextBox">
+                  <h2 class="chooseText">EASY</h2>
+                  <p class="chooseSubText">Difficulty</p>
+                </div>
+                <h2 class="chooseDescription">
+
+                </h2>
+                <img
+                  src="./img/popupImg/greenFlag.png"
+                  alt=""
+                  class="chooseImg"
+                />
+              </div>
+              <div class="chooseBox mediumMode" id = "mediumMode">
+                <div class="chooseTextBox">
+                  <h2 class="chooseText">MEDIUM</h2>
+                  <p class="chooseSubText">Difficulty</p>
+                </div>
+                <h2 class="chooseDescription">
+
+                </h2>
+                <img
+                  src="./img/popupImg/orangeFlag.png"
+                  alt=""
+                  class="chooseImg"
+                />
+              </div>
+              <div class="chooseBox hardMode" id = "hardMode">
+                <div class="chooseTextBox">
+                  <h2 class="chooseText">HARD</h2>
+                  <p class="chooseSubText">Difficulty</p>
+                </div>
+                <h2 class="chooseDescription">
+
+                </h2>
+                <img
+                  src="./img/popupImg/redFlag.png"
+                  alt=""
+                  class="chooseImg"
+                />
+              </div>
+            </div>
+          </div>
+          <div class="startButton">
+            <img src="./img/popupImg/buttonimg.png" alt="" />Start Training
+          </div>
+        </div>
+      </div>
+      <div class="exitBox"><i class="fa-solid fa-xmark"></i></div>
+      <header>
+        <div class="titleBox">
+          <div class="titleIcon"><img src="./img/Title.png" alt="" /></div>
+          <div class="titleTextBox">
+            <h2 class="titleText">AIM-LAB</h2>
+            <p class="titleSubText">MENU</p>
+          </div>
+        </div>
+        <div class="descriptionBox">
+          <h2 class="descriptionText">Information</h2>
+          <h2 class="descriptionSubText">
+            If you want to improve your aim and shoot better than anyone else,
+            you're in the right place. Train and get better as well as compete for ranking.
+          </h2>
+        </div>
+      </header>
+      <section>
+        <div class="profileSide">
+          <div class="profileBox">
+            <div class="profileInfo infoScore">
+              <div class="profileInfoTextBox">
+                <h2 class="profileInfoText">Score</h2>
+                <p class="profileInfoSubText" id="scoreId">46780</p>
+              </div>
+            </div>
+            <div class="profileImgBox">
+              <div
+                class="profileImg"
+                style="
+                  background-image: url(https://cdn.discordapp.com/attachments/746645694194122775/1135514215164162048/WhatsApp_Gorsel_2023-07-31_saat_12.54.20.jpg?ex=6548bb05&is=65364605&hm=ecf297726eadad26ce3428de6fd929948d2e908af03e7eb1d16225445bbcc6e4&);
+                "
+              ></div>
+            </div>
+            <div class="profileInfo infoRank">
+              <div class="profileInfoTextBox">
+                <h2 class="profileInfoText">Rank</h2>
+                <p class="profileInfoSubText" id="rankId">#25</p>
+              </div>
+            </div>
+            <div class="profileNameBox">
+              <h2 class="profileName">Tworst Kırıcı</h2>
+              <p class="profileSubName">Member</p>
+            </div>
+          </div>
+          <div class="modeList">
+            <div class="modeBox" id="Bot Training">
+              <img src="./img/modeImg/bot.png" alt="" class="modeImg" />
+              <div class="modeTextBox">
+                <h2 class="modeText">bot training</h2>
+                <p class="modeSubText">Mode Information</p>
+              </div>
+              <i class="fa-solid fa-chevron-right"></i>
+            </div>
+            <div class="modeBox" id="Spider Shot">
+              <img src="./img/modeImg/spider.png" alt="" class="modeImg" />
+              <div class="modeTextBox">
+                <h2 class="modeText">spider shot</h2>
+                <p class="modeSubText">Mode Information</p>
+              </div>
+              <i class="fa-solid fa-chevron-right"></i>
+            </div>
+            <div class="modeBox" id="Strafe Shooting">
+              <img src="./img/modeImg/training.png" alt="" class="modeImg" />
+              <div class="modeTextBox">
+                <h2 class="modeText">strafe shooting</h2>
+                <p class="modeSubText">Mode Information</p>
+              </div>
+              <i class="fa-solid fa-chevron-right"></i>
+            </div>
+            <div class="modeBox" id="Dynamic Clicking">
+              <img src="./img/modeImg/dynamic.png" alt="" class="modeImg" />
+              <div class="modeTextBox">
+                <h2 class="modeText">dynamic clicking</h2>
+                <p class="modeSubText">Mode Information</p>
+              </div>
+              <i class="fa-solid fa-chevron-right"></i>
+            </div>
+            <div class="modeBox" id="Target Track">
+              <img src="./img/modeImg/target.png" alt="" class="modeImg" />
+              <div class="modeTextBox">
+                <h2 class="modeText">Target Track</h2>
+                <p class="modeSubText">Mode Information</p>
+              </div>
+              <i class="fa-solid fa-chevron-right"></i>
+            </div>
+            <div class="modeBox" id="Realistic Track">
+              <img src="./img/modeImg/realistic.png" alt="" class="modeImg" />
+              <div class="modeTextBox">
+                <h2 class="modeText">realistic track</h2>
+                <p class="modeSubText">Mode Information</p>
+              </div>
+              <i class="fa-solid fa-chevron-right"></i>
+            </div>
+          </div>
+        </div>
+        <div class="leaderSide">
+          <div class="leaderTopSide">
+            <div class="leaderTitleBox">
+              <div class="leaderTitleIcon">
+                <i class="fa-solid fa-ranking-star"></i>
+              </div>
+              <div class="leaderTitleTextBox">
+                <h2 class="leaderTitleText">Leader Board</h2>
+                <p class="leaderTitleSubText">Player List</p>
+              </div>
+            </div>
+            <div class="leaderInputList">
+              <div class="input-container">
+                <input type="text" id="modern-input" placeholder="Search" />
+                <div class="inputIcon">
+                  <i class="fa-solid fa-magnifying-glass"></i>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="leaderLine"></div>
+          <div class="leaderPlayerListSide">
+            <div class="leaderPlayerInfoList">
+              <h2 class="leaderPlayerInfoText" style="width: 30.4688vw">
+                Profile Name
+              </h2>
+              <h2 class="leaderPlayerInfoText" style="width: 12.0833vw">
+                Total Training
+              </h2>
+              <h2 class="leaderPlayerInfoText" style="width: 7.7083vw">
+                Shooting Accuracy
+              </h2>
+              <h2
+                class="leaderPlayerInfoText"
+                style="width: 10.625vw; text-align: right"
+              >
+                Score
+              </h2>
+            </div>
+            <div class="leaderPlayerList">
+              
+            </div>
+          </div>
+        </div>
+      </section>
+      <img
+        src="./img/topLeftEffect.png"
+        alt=""
+        class="bgeffectImg topLeftImg"
+      />
+      <img
+        src="./img/topRightEffect.png"
+        alt=""
+        class="bgeffectImg topRightImg"
+      />
+      <img
+        src="./img/bottomLeftEffect.png"
+        alt=""
+        class="bgeffectImg bottomLeftImg"
+      />
+      <img
+        src="./img/bottomRightEffect.png"
+        alt=""
+        class="bgeffectImg bottomRightImg"
+      />
+      <div class="bgEffect"></div>
+    </div>
+  </body>
+  <script src="js/script.js"></script>
+</html>
