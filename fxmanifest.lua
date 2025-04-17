@@ -1,7 +1,8 @@
 fx_version 'adamant'
 games { 'gta5' }
-description 'viber-aimlab'
+description 'aimlab'
 lua54 'yes'
+author 'Vlad'
 
 shared_scripts {
   'config.lua',
